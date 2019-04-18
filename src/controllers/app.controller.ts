@@ -1,6 +1,4 @@
 import { Controller, UseGuards, Post, Body, FileInterceptor, UploadedFile, UseInterceptors } from '@nestjs/common';
-import { SpiderService } from '../services/spider.service';
-import { RedisService } from '../services/redis.service';
 import { SpiderOrigin } from '../interface/CONFIG.STATE';
 import { diskStorage } from 'multer'
 import { UploadGuard } from '../guards/upload.guard';
@@ -14,8 +12,6 @@ interface Iconfig {
 @Controller()
 export class AppController {
     constructor(
-        private readonly appService: SpiderService,
-        private readonly redisService: RedisService
         ) {}
     
     static getFileType (mimeType: string): string {
