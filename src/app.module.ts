@@ -9,10 +9,9 @@ import { CountMiddleware } from './middleware/count.middleware';
 
 // modules
 import { LogModule } from './module/log.module';
-import { DownloadModule } from './module/download.module';
 
 @Module({
-    imports: [LogModule, DownloadModule],
+    imports: [LogModule],
     controllers: [AppController],
     // providers: [AppService],
 })
