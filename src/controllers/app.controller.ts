@@ -1,7 +1,8 @@
 import { Controller, UseGuards, Post, Body, FileInterceptor, UploadedFile, UseInterceptors } from '@nestjs/common';
-import { SpiderOrigin } from '../interface/CONFIG.STATE';
-import { diskStorage } from 'multer'
+import { LogService } from '../services/log.service';
 import { UploadGuard } from '../guards/upload.guard';
+const { exec, cwd } = require('child_process');
+const fs = require('fs');
 
 interface Iconfig {
 	bookName?: string;
@@ -11,10 +12,26 @@ interface Iconfig {
 
 @Controller()
 export class AppController {
+    private journalMap = {
+        JISSR: {
+            path: '/www/quicklyReactSsr/parsePage',
+            pdfPath: '/www/quicklyReactSsr/src/assets/pdf'
+        },
+        IJPEE: {
+            path: '/www/journal1/parsePage',
+            pdfPath: '/www/journal1/src/assets/pdf'
+        },
+        bryanhousepub: {
+            path: '/www/iss2/parsePage',
+            pdfPath: '/www/iss2/src/static/pdf'
+        },
+    }
     constructor(
+        private readonly logService: LogService
         ) {}
     
     static getFileType (mimeType: string): string {
+        console.log(mimeType);
         let fileType: string;
         if (mimeType.match(/image/)) {
             fileType = 'img';
@@ -22,33 +39,52 @@ export class AppController {
             fileType = 'pdf';
         } else if (mimeType.match(/mp3/)) {
             fileType = 'mp3';
+        } else if (mimeType.match(/text/)) {
+            fileType = 'txt'
         } else {
             fileType = 'all';
         };
         return fileType;
     };
-
     @Post('upload')
     @UseGuards(UploadGuard)
-    @UseInterceptors(FileInterceptor('file', {
-        storage: diskStorage({
-            destination:(req, file, cb) => {
-                const { mimetype } = file;
-                const fileType = AppController.getFileType(mimetype);
-                cb(null, `../file/${fileType}`);
-            },
-            filename: (req, file, cb) => {
-              // Generating a 32 random chars long string
-              cb(null, `${(file.originalname)}`)
-            }
-          })
-    }))
+    @UseInterceptors(FileInterceptor('file'))
     upload(@UploadedFile() file, @Body() bd) {
         const fileType = AppController.getFileType(file.mimetype);
-        console.log('upload')
+        const { journalType } = bd;
+        const journal = this.journalMap[journalType];
+        if (!journal) {
+            return {
+                code: 2,
+                msg: 'unhandle journal',
+            }
+        }
+        let setPath;
+        if (fileType === 'txt') {
+            setPath = `${journal.path}/${file.originalname}`
+        } else if (fileType === 'pdf') {
+            setPath = `${journal.pdfPath}/${file.originalname}`
+        } else {
+            return {
+                code: 2,
+                msg: '不支持的文件类型',
+            }
+        }
+        fs.writeFile(`${setPath}`, file.buffer, () => {
+            if (fileType === 'txt') {
+                exec(`node test.js`, {
+                    cwd: `${journal.path}`,
+                }, function (error, stdout, stderr) {
+                    if (error) {
+                        console.log(error);
+                    }
+                });
+            }
+            this.logService.info(`${setPath}`);
+        });
         return {
             code: 1,
-            path: `/${fileType}/${(file.originalname)}`,
+            path: `${setPath}`,
         }
     }
 }

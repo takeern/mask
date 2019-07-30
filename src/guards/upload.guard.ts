@@ -16,14 +16,12 @@ export class UploadGuard implements CanActivate {
             if (isCheck) {
                 return true;
             }
-            console.log('black');
             return false;
         } else if (ipCheck.blackIp.length !== 0) {
             const isCheck = ipCheck.blackIp.find(item => {
                 return clientIp.indexOf(item) !== -1;
             })
             if (isCheck) {
-                console.log('black');
                 return false;
             }
             return true;

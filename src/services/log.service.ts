@@ -24,7 +24,7 @@ export class LogService {
     }
 
     onModuleInit() {
-        this.gpath = process.cwd(); 
+        this.gpath = process.cwd();
         this.setLogTime();
     }
 
