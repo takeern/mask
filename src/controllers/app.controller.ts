@@ -14,16 +14,16 @@ interface Iconfig {
 export class AppController {
     private journalMap = {
         JISSR: {
-            path: '/www/quicklyReactSsr/parsePage',
-            pdfPath: '/www/quicklyReactSsr/src/assets/pdf'
+            path: '/home/quicklyReactSsr/parsePage',
+            pdfPath: '/home/quicklyReactSsr/src/assets/pdf'
         },
         IJPEE: {
-            path: '/www/journal1/parsePage',
-            pdfPath: '/www/journal1/src/assets/pdf'
+            path: '/home/journal1/parsePage',
+            pdfPath: '/home/journal1/src/assets/pdf'
         },
         bryanhousepub: {
-            path: '/www/iss2/parsePage',
-            pdfPath: '/www/iss2/src/static/pdf'
+            path: '/home/iss2/parsePage',
+            pdfPath: '/home/iss2/src/static/pdf'
         },
     }
     constructor(
