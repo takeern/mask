@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { ApplicationModule } from './app.module';
 import { WsAdapter } from '@nestjs/websockets/adapters';
 import { ValidationPipe } from './middleware/validation.pipe';
+import * as helmet from 'helmet';
+import * as rateLimit from 'express-rate-limit';
 
 
 const heapdump = require('heapdump');
@@ -14,6 +16,14 @@ async function bootstrap() {
     });
     app.useWebSocketAdapter(new WsAdapter(app.getHttpServer()));
     app.useGlobalPipes(new ValidationPipe());
+    app.use(helmet());
+    app.use(
+        rateLimit({
+            windowMs: 5, // 15 minutes
+            max: 100, // limit each IP to 100 requests per windowMs
+            message: 'Too many accounts created from this IP, please try again after 15 minutes',
+        }),
+    );
     await app.listen(4000);
 
     if (module.hot) {
