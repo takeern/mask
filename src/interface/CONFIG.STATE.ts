@@ -6,7 +6,12 @@ enum SpiderOrigin {
     ixSpider = 'ixspider',
 }
 
+interface JwtPayload {
+    email: string;
+}
+
 export {
     RedisConfig,
     SpiderOrigin,
+    JwtPayload,
 }

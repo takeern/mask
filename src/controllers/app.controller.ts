@@ -1,6 +1,6 @@
 import { Controller, UseGuards, Post, Body, FileInterceptor, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { LogService } from '../services/log.service';
-import { UploadGuard } from '../guards/upload.guard';
+import { UploadGuard } from '../middleware/upload.guard';
 const { exec, cwd } = require('child_process');
 const fs = require('fs');
 
