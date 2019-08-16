@@ -32,6 +32,7 @@
     "body-parser": "^1.18.3",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.10.0",
+    "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
     "express-rate-limit": "^5.0.0",
     "heapdump": "^0.3.12",

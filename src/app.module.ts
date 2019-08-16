@@ -1,5 +1,6 @@
 import { Module, MiddlewareConsumer } from '@nestjs/common';
 import { AppController } from './controllers/app.controller';
+import { UserController } from './controllers/user.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 const orm = require('../config/orm.json');
@@ -34,6 +35,6 @@ import { User } from './static/entity/user.entity'
 })
 export class ApplicationModule {
     configure(consumer: MiddlewareConsumer) {
-        consumer.apply(CountMiddleware, FiterDataMiddleware).forRoutes(AppController);
+        consumer.apply(CountMiddleware, FiterDataMiddleware).forRoutes(AppController, UserController);
     }
 }
