@@ -1,7 +1,10 @@
 import { Controller, UseGuards, Post, Body, FileInterceptor, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { LogService } from '../services/log.service';
+import { JournalService }  from '../services/user.service';
+import { AuthService }  from '../services/auth.service';
+import { Journal } from '../static/entity/journal.entity';
 import { UploadGuard } from '../middleware/upload.guard';
-const { exec, cwd } = require('child_process');
+import { JournalSubmit } from '../static/dto/journal.dto';
 const fs = require('fs');
 
 interface Iconfig {
@@ -27,7 +30,8 @@ export class AppController {
         },
     }
     constructor(
-        private readonly logService: LogService
+        private readonly logService: LogService,
+        private readonly journalService: JournalService
         ) {}
     
     static getFileType (mimeType: string): string {
@@ -53,16 +57,16 @@ export class AppController {
             destination:(req, file, cb) => {	
                 const { mimetype } = file;	
                 const fileType = AppController.getFileType(mimetype);	
-                cb(null, `../file/${fileType}`);	
+                cb(null, `../files}`);	
             },	
-            filename: (req, file, cb) => {	
-              // Generating a 32 random chars long string	
-              cb(null, `${(file.originalname)}`)	
+            filename: (req, file, cb) => {
+              cb(null, `${file.originalname}|${Date.now()}`)	
             }	
         }),
     }))
-    upload(@UploadedFile() file, @Body() bd) {
-        const { } = bd;
+    upload(@UploadedFile() file, @Body() bd: JournalSubmit) {
+        
+        this.logger.info(file);
     }
 
     @Post('uploadInfo')
