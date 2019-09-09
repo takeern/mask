@@ -31,7 +31,6 @@ export class AppController {
         ) {}
     
     static getFileType (mimeType: string): string {
-        console.log(mimeType);
         let fileType: string;
         if (mimeType.match(/image/)) {
             fileType = 'img';
