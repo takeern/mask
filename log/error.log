@@ -1,0 +1,507 @@
+[2019-09-02T19:18:44.252] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'uid' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'uid\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'uid\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, \'156742312240561|2019-1-6_3.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'1231\', DEFAULT, \'12312\', \'jissr\', \'123\')',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, ?, ?, ?, ?, ?, DEFAULT, ?, ?, ?)',
+  parameters:
+   [ '156742312240561|2019-1-6_3.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '1231',
+     '12312',
+     'jissr',
+     '123' ] }
+[2019-09-02T19:22:57.434] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'uid' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'uid\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'uid\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, \'156742337741465|2019-1-6_3.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'1231\', DEFAULT, \'12312\', \'jissr\', \'123\')',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, ?, ?, ?, ?, ?, DEFAULT, ?, ?, ?)',
+  parameters:
+   [ '156742337741465|2019-1-6_3.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '1231',
+     '12312',
+     'jissr',
+     '123' ] }
+[2019-09-02T19:36:10.717] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'uid' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'uid\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'uid\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, \'156742417040810|2019-1-6_4.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'213123\', \'3123\', \'12312\', \'jissr\', \'13123\')',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+  parameters:
+   [ '156742417040810|2019-1-6_4.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '213123',
+     '3123',
+     '12312',
+     'jissr',
+     '13123' ] }
+[2019-09-03T10:26:07.920] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'uid' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'uid\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'uid\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, \'156747756785710|2019-1-6_4.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'213123\', \'3123\', \'12312\', \'jissr\', \'13123\')',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+  parameters:
+   [ '156747756785710|2019-1-6_4.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '213123',
+     '3123',
+     '12312',
+     'jissr',
+     '13123' ] }
+[2019-09-03T10:27:20.571] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'uid' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'uid\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'uid\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, \'156747764002994|2019-1-6_4.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'213123\', \'3123\', \'12312\', \'jissr\', \'13123\')',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+  parameters:
+   [ '156747764002994|2019-1-6_4.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '213123',
+     '3123',
+     '12312',
+     'jissr',
+     '13123' ] }
+[2019-09-03T10:28:03.121] [ERROR] error - { QueryFailedError: ER_DATA_TOO_LONG: Data too long for column 'path' at row 1
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_DATA_TOO_LONG: Data too long for column \'path\' at row 1',
+  code: 'ER_DATA_TOO_LONG',
+  errno: 1406,
+  sqlMessage: 'Data too long for column \'path\' at row 1',
+  sqlState: '22001',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, 4, \'156747768289879|2019-1-6_4.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'213123\', \'3123\', \'12312\', \'jissr\', \'13123\')',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+  parameters:
+   [ 4,
+     '156747768289879|2019-1-6_4.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '213123',
+     '3123',
+     '12312',
+     'jissr',
+     '13123' ] }
+[2019-09-03T10:44:16.070] [ERROR] error - { QueryFailedError: ER_DATA_TOO_LONG: Data too long for column 'keyword' at row 1
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_DATA_TOO_LONG: Data too long for column \'keyword\' at row 1',
+  code: 'ER_DATA_TOO_LONG',
+  errno: 1406,
+  sqlMessage: 'Data too long for column \'keyword\' at row 1',
+  sqlState: '22001',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, 4, \'156747865602286|2019-1-6_2.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'Model Study of Slope Stability in Open Pit by Numerical Modeling Using the Finite Element Method\', \'Slope stability; Finite element method; Safety  factor; Lafarge career.\', \'Open pit slope stability analysis has been performed to assess the slope deformation, state of stresses at critically instable failure zones, different failure modes and safe functional design of excavated slopes using the numerical modeling technique as finite element method. In the evaluation of slopes, the factor of safety values still remain the main indexes for finding out how close or far slopes are from failure. The evaluation can be done my means of numerical methods such as the finite element method. In the finite element method, the latter analysis, the so-called shear strength reduction (SSR) technique can be applied. The angle of dilatancy, soil modulus or the solution domain size is not critical parameters in this technique. The safety factor can be obtained, assuming a Mohr-Coulomb failure criterion, by reducing the strength parameters incrementally, and starting from unfactored values. In this paper we have based our study on element modeling finished using the software Plaxis, the model used is that of Mohr-Coulomb.\', \'jissr\', \'The majority of geotechnical work undertaken at open pit mines in the past was focused on two-dimensional (2D) methods of slope stability analyses. These methods may not be adequate as the data provided by mining machines cannot be fully incorporated in 2D models. \')',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`) VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+  parameters:
+   [ 4,
+     '156747865602286|2019-1-6_2.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     'Model Study of Slope Stability in Open Pit by Numerical Modeling Using the Finite Element Method',
+     'Slope stability; Finite element method; Safety  factor; Lafarge career.',
+     'Open pit slope stability analysis has been performed to assess the slope deformation, state of stresses at critically instable failure zones, different failure modes and safe functional design of excavated slopes using the numerical modeling technique as finite element method. In the evaluation of slopes, the factor of safety values still remain the main indexes for finding out how close or far slopes are from failure. The evaluation can be done my means of numerical methods such as the finite element method. In the finite element method, the latter analysis, the so-called shear strength reduction (SSR) technique can be applied. The angle of dilatancy, soil modulus or the solution domain size is not critical parameters in this technique. The safety factor can be obtained, assuming a Mohr-Coulomb failure criterion, by reducing the strength parameters incrementally, and starting from unfactored values. In this paper we have based our study on element modeling finished using the software Plaxis, the model used is that of Mohr-Coulomb.',
+     'jissr',
+     'The majority of geotechnical work undertaken at open pit mines in the past was focused on two-dimensional (2D) methods of slope stability analyses. These methods may not be adequate as the data provided by mining machines cannot be fully incorporated in 2D models. ' ] }
+[2019-09-03T16:10:19.213] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'notes' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'notes\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'notes\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, 4, \'156749821913628|2019-1-6_4.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'123\', \'13123123\', \'12312\', \'jissr\', DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT, DEFAULT)',
+  parameters:
+   [ 4,
+     '156749821913628|2019-1-6_4.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '123',
+     '13123123',
+     '12312',
+     'jissr' ] }
+[2019-09-03T16:10:20.409] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'notes' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'notes\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'notes\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, 4, \'156749822038510|2019-1-6_4.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'123\', \'13123123\', \'12312\', \'jissr\', DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT, DEFAULT)',
+  parameters:
+   [ 4,
+     '156749822038510|2019-1-6_4.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '123',
+     '13123123',
+     '12312',
+     'jissr' ] }
+[2019-09-03T17:24:57.778] [ERROR] error - { Error: Command failed: rm -rf ../files/156749865891273|2019-1-6_4.pdf
+/bin/sh: 2019-1-6_4.pdf: command not found
+
+    at ChildProcess.exithandler (child_process.js:294:12)
+    at ChildProcess.emit (events.js:189:13)
+    at maybeClose (internal/child_process.js:970:16)
+    at Socket.stream.socket.on (internal/child_process.js:389:11)
+    at Socket.emit (events.js:189:13)
+    at Pipe._handle.close (net.js:597:12)
+  killed: false,
+  code: 127,
+  signal: null,
+  cmd: 'rm -rf ../files/156749865891273|2019-1-6_4.pdf' }
+[2019-09-03T17:29:03.188] [ERROR] error - { Error: Command failed: rm -rf ../files/15674986561169|2019-1-6_4.pdf
+/bin/sh: 2019-1-6_4.pdf: command not found
+
+    at ChildProcess.exithandler (child_process.js:294:12)
+    at ChildProcess.emit (events.js:189:13)
+    at maybeClose (internal/child_process.js:970:16)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:259:5)
+  killed: false,
+  code: 127,
+  signal: null,
+  cmd: 'rm -rf ../files/15674986561169|2019-1-6_4.pdf' }
+[2019-09-03T17:29:03.390] [ERROR] error - { QueryFailedError: ER_DUP_ENTRY: Duplicate entry '6' for key 'PRIMARY'
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message: 'ER_DUP_ENTRY: Duplicate entry \'6\' for key \'PRIMARY\'',
+  code: 'ER_DUP_ENTRY',
+  errno: 1062,
+  sqlMessage: 'Duplicate entry \'6\' for key \'PRIMARY\'',
+  sqlState: '23000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (\'6\', 4, \'156750294315168|2019-1-6_4.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'123\', \'13123123\', \'12312\', \'jissr\', \'nothing\', DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)',
+  parameters:
+   [ '6',
+     4,
+     '156750294315168|2019-1-6_4.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '123',
+     '13123123',
+     '12312',
+     'jissr',
+     'nothing' ] }
+[2019-09-03T17:32:05.980] [ERROR] error - { Error: Command failed: rm -rf ../files/15674986561169|2019-1-6_4.pdf
+/bin/sh: 2019-1-6_4.pdf: command not found
+
+    at ChildProcess.exithandler (child_process.js:294:12)
+    at ChildProcess.emit (events.js:189:13)
+    at maybeClose (internal/child_process.js:970:16)
+    at Socket.stream.socket.on (internal/child_process.js:389:11)
+    at Socket.emit (events.js:189:13)
+    at Pipe._handle.close (net.js:597:12)
+  killed: false,
+  code: 127,
+  signal: null,
+  cmd: 'rm -rf ../files/15674986561169|2019-1-6_4.pdf' }
+[2019-09-03T17:32:06.198] [ERROR] error - { QueryFailedError: ER_DUP_ENTRY: Duplicate entry '6' for key 'PRIMARY'
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message: 'ER_DUP_ENTRY: Duplicate entry \'6\' for key \'PRIMARY\'',
+  code: 'ER_DUP_ENTRY',
+  errno: 1062,
+  sqlMessage: 'Duplicate entry \'6\' for key \'PRIMARY\'',
+  sqlState: '23000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (\'6\', 4, \'156750312593481|2019-1-6_3.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'123\', \'13123123\', \'12312\', \'jissr\', \'nothing\', DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)',
+  parameters:
+   [ '6',
+     4,
+     '156750312593481|2019-1-6_3.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '123',
+     '13123123',
+     '12312',
+     'jissr',
+     'nothing' ] }
+[2019-09-03T17:33:04.523] [ERROR] error - { QueryFailedError: ER_DUP_ENTRY: Duplicate entry '6' for key 'PRIMARY'
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message: 'ER_DUP_ENTRY: Duplicate entry \'6\' for key \'PRIMARY\'',
+  code: 'ER_DUP_ENTRY',
+  errno: 1062,
+  sqlMessage: 'Duplicate entry \'6\' for key \'PRIMARY\'',
+  sqlState: '23000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (\'6\', 4, \'156750318450173|2019-1-6_3.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'123\', \'13123123\', \'12312\', \'jissr\', \'nothing\', DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)',
+  parameters:
+   [ '6',
+     4,
+     '156750318450173|2019-1-6_3.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '123',
+     '13123123',
+     '12312',
+     'jissr',
+     'nothing' ] }
+[2019-09-03T17:33:04.526] [ERROR] error - { Error: Command failed: rm -rf ../files/15674986561169|2019-1-6_4.pdf
+/bin/sh: 2019-1-6_4.pdf: command not found
+
+    at ChildProcess.exithandler (child_process.js:294:12)
+    at ChildProcess.emit (events.js:189:13)
+    at maybeClose (internal/child_process.js:970:16)
+    at Socket.stream.socket.on (internal/child_process.js:389:11)
+    at Socket.emit (events.js:189:13)
+    at Pipe._handle.close (net.js:597:12)
+  killed: false,
+  code: 127,
+  signal: null,
+  cmd: 'rm -rf ../files/15674986561169|2019-1-6_4.pdf' }
+[2019-09-03T17:35:13.608] [ERROR] error - { Error: Command failed: rm -rf ../files/15674986561169|2019-1-6_4.pdf
+/bin/sh: 2019-1-6_4.pdf: command not found
+
+    at ChildProcess.exithandler (child_process.js:294:12)
+    at ChildProcess.emit (events.js:189:13)
+    at maybeClose (internal/child_process.js:970:16)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:259:5)
+  killed: false,
+  code: 127,
+  signal: null,
+  cmd: 'rm -rf ../files/15674986561169|2019-1-6_4.pdf' }
+[2019-09-03T17:35:13.918] [ERROR] error - { QueryFailedError: ER_DUP_ENTRY: Duplicate entry '6' for key 'PRIMARY'
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message: 'ER_DUP_ENTRY: Duplicate entry \'6\' for key \'PRIMARY\'',
+  code: 'ER_DUP_ENTRY',
+  errno: 1062,
+  sqlMessage: 'Duplicate entry \'6\' for key \'PRIMARY\'',
+  sqlState: '23000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (\'6\', 4, \'156750331356312|2019-1-6_4.pdf\', \'takeern\', \'tq123456@foxmail.com\', \'18162323650\', \'123\', \'13123123\', \'12312\', \'jissr\', \'nothing\', DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)',
+  parameters:
+   [ '6',
+     4,
+     '156750331356312|2019-1-6_4.pdf',
+     'takeern',
+     'tq123456@foxmail.com',
+     '18162323650',
+     '123',
+     '13123123',
+     '12312',
+     'jissr',
+     'nothing' ] }
+[2019-09-03T17:36:45.793] [ERROR] error - { Error: Command failed: rm -rf ../files/15674986561169|2019-1-6_4.pdf
+/bin/sh: 2019-1-6_4.pdf: command not found
+
+    at ChildProcess.exithandler (child_process.js:294:12)
+    at ChildProcess.emit (events.js:189:13)
+    at maybeClose (internal/child_process.js:970:16)
+    at Socket.stream.socket.on (internal/child_process.js:389:11)
+    at Socket.emit (events.js:189:13)
+    at Pipe._handle.close (net.js:597:12)
+  killed: false,
+  code: 127,
+  signal: null,
+  cmd: 'rm -rf ../files/15674986561169|2019-1-6_4.pdf' }

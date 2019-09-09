@@ -1,0 +1,17 @@
+[2019-08-19T14:59:30.193] [INFO] info - /home/journal1/src/assets/pdf/2019-1-6_2.pdf
+[2019-08-19T15:02:34.891] [INFO] info - { fieldname: 'file',
+  originalname: '2019-1-6_1.pdf',
+  encoding: '7bit',
+  mimetype: 'application/pdf',
+  destination: '../files',
+  filename: '2019-1-6_1.pdf|1566198154887',
+  path: '../files/2019-1-6_1.pdf|1566198154887',
+  size: 260822 }
+[2019-08-19T15:03:12.838] [INFO] info - { fieldname: 'file',
+  originalname: '2019-1-6_3.pdf',
+  encoding: '7bit',
+  mimetype: 'application/pdf',
+  destination: '../files',
+  filename: '2019-1-6_3.pdf|1566198192834',
+  path: '../files/2019-1-6_3.pdf|1566198192834',
+  size: 357445 }

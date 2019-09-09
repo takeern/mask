@@ -9,13 +9,13 @@ export class Journal {
     uid: number;
 
     @Column('varchar', {
-        length: 20,
+        length: 40,
         unique: true,
     })
     path: string;
 
     @Column('varchar', {
-        length: 20,
+        length: 30,
     })
     name: string;
 
@@ -28,23 +28,25 @@ export class Journal {
     @Column({
         type: 'varchar',
         length: 20,
+        default: 'nothing',
     })
     contactPhone: number;
 
     @Column({
         type: 'varchar',
-        length: 50,
+        length: 100,
     })
     title: string;
 
     @Column({
         type: 'varchar',
-        length: 60,
+        length: 100,
+        default: 'nothing',
     })
     keyword: string;
 
     @Column('varchar', {
-        length: 500,
+        length: 2000,
     })
     abstract: string;
 
@@ -56,7 +58,14 @@ export class Journal {
 
     @Column({
         type: 'varchar',
-        length: 500,
+        length: 600,
+        default: 'nothing',
     })
     notes: string;
+
+    @CreateDateColumn()
+    createTime: Date;
+
+    @UpdateDateColumn()
+    updateTime: Date;
 }

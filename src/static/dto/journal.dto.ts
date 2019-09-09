@@ -1,37 +1,56 @@
-import { IsEmail, IsNotEmpty, IsInt, Max } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsInt, MaxLength } from 'class-validator';
 
 class JournalSubmit {
     @IsEmail()
     contactEmail: string;
   
     @IsNotEmpty()
-    @Max(20)
+    @MaxLength(20)
     name: string;
 
-    @IsNotEmpty()
-    @Max(20)
-    contactPhone: string;
+    @MaxLength(20)
+    contactPhone: number;
 
     @IsNotEmpty()
-    @Max(50)
+    @MaxLength(100)
     title: string;
 
-    @IsNotEmpty()
-    @Max(60)
+    @MaxLength(100)
     keyword: string;
 
     @IsNotEmpty()
-    @Max(200)
+    @MaxLength(2000)
     abstract: string;
 
-    @IsInt()
-    @Max(20)
-    submitType: number;
+    @MaxLength(20)
+    submitType: string;
 
-    @Max(500)
+    @MaxLength(500)
     notes: string;
+
+    path: string;
 }
 
+class JournalGetInfo {
+    @IsNotEmpty()
+    uid: number;
+}
+
+class JournalDelete {
+    @IsNotEmpty()
+    jid: number;
+
+    @IsNotEmpty()
+    uid: number;
+}
+
+class JournalUpdate {
+    @IsNotEmpty()
+    jid: number;
+}
 export {
     JournalSubmit,
+    JournalGetInfo,
+    JournalDelete,
+    JournalUpdate,
 }

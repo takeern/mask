@@ -128,8 +128,7 @@ export class UserController {
             email: user.email,
         });
         res.cookie('token', token, {
-            httpOnly: true,
-            expires: new Date(Date.now() + 30 * 60 * 24 * 1000),
+            expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 15),
         });
     }
 }

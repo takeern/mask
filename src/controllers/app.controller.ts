@@ -46,10 +46,11 @@ export class AppController {
         };
         return fileType;
     };
-    @Post('upload')
+    @Post('uploads')
     @UseGuards(UploadGuard)
     @UseInterceptors(FileInterceptor('file'))
     upload(@UploadedFile() file, @Body() bd) {
+        console.log(bd);
         const fileType = AppController.getFileType(file.mimetype);
         const { journalType } = bd;
         const journal = this.journalMap[journalType];

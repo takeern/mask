@@ -1,40 +1,44 @@
 import { Module, MiddlewareConsumer } from '@nestjs/common';
-import { AppController } from './controllers/app.controller';
-import { UserController } from './controllers/user.controller';
+
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 const orm = require('../config/orm.json');
 
 //middleware 
-import { FiterDataMiddleware } from './middleware/fiterSpiderData.middleware';
+import { AccessMiddleware } from './middleware/fiterSpiderData.middleware';
 import { CountMiddleware } from './middleware/count.middleware';
+import { CsrfMiddleware } from './middleware/csrf.middleware';
 
+// controller
+import { AppController } from './controllers/app.controller';
+import { UserController } from './controllers/user.controller';
+import { SystemController } from './controllers/system.controller';
 
 // modules
 import { LogModule } from './module/log.module';
 import { UserModule } from './module/user.module';
+import { JournalModule } from './module/journal.module';
 
-import { User } from './static/entity/user.entity'
+import { User } from './static/entity/user.entity';
+import { Journal } from './static/entity/journal.entity';
 
 @Module({
     imports: [
         LogModule,
         UserModule,
+        JournalModule,
         TypeOrmModule.forRoot({
-            type: 'mysql',
-            host: 'localhost',
-            port: 3306,
-            username: 'root',
-            password: 'maskTakeern',
-            database: 'mask', // 自己提前建好数据库, 无需建表
-            entities: [User], // 实体存放的目录, 目前只能靠文件后缀识别
-            synchronize: true, // 项目一运行就根据实体自动创建表结构
+            ...orm,
+            entities: [User, Journal], // 实体存放的目录, 目前只能靠文件后缀识别
         }),
     ],
     controllers: [AppController],
 })
 export class ApplicationModule {
     configure(consumer: MiddlewareConsumer) {
-        consumer.apply(CountMiddleware, FiterDataMiddleware).forRoutes(AppController, UserController);
+        consumer.apply(CsrfMiddleware)
+            .forRoutes(SystemController);
+        consumer.apply(CountMiddleware, AccessMiddleware)
+            .forRoutes(AppController, UserController, SystemController);
     }
 }

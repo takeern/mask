@@ -16,5 +16,6 @@ import { AuthModule } from './auth.module';
     ], // 引入实体类
     providers: [UserService], // 为服务提供注册商
     controllers: [UserController], // 控制器
+    exports: [ UserService ],
 })
 export class UserModule { }

@@ -2,7 +2,7 @@ import { NestMiddleware } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class FiterDataMiddleware implements NestMiddleware {
+export class AccessMiddleware implements NestMiddleware {
     fiterData(data, path) {
         let msg;
         switch (path) {

@@ -1,36 +1,22 @@
-import { Controller, UseGuards, Post, Body, FileInterceptor, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Controller, UseGuards, Post, Body, FileInterceptor, UploadedFile, UseInterceptors, Req } from '@nestjs/common';
+import { diskStorage } from 'multer';
+const { exec } = require('child_process');
+
 import { LogService } from '../services/log.service';
-import { JournalService }  from '../services/user.service';
-import { AuthService }  from '../services/auth.service';
+import { JournalService }  from '../services/journal.service';
 import { Journal } from '../static/entity/journal.entity';
 import { UploadGuard } from '../middleware/upload.guard';
-import { JournalSubmit } from '../static/dto/journal.dto';
-const fs = require('fs');
-
-interface Iconfig {
-	bookName?: string;
-	bookNumber?: string;
-	bookHref?: string;
-}
+import {
+    JournalSubmit,
+    JournalGetInfo,
+    JournalUpdate,
+    JournalDelete,
+} from '../static/dto/journal.dto';
 
 @Controller()
-export class AppController {
-    private journalMap = {
-        JISSR: {
-            path: '/home/quicklyReactSsr/parsePage',
-            pdfPath: '/home/quicklyReactSsr/src/assets/pdf'
-        },
-        IJPEE: {
-            path: '/home/journal1/parsePage',
-            pdfPath: '/home/journal1/src/assets/pdf'
-        },
-        bryanhousepub: {
-            path: '/home/iss2/parsePage',
-            pdfPath: '/home/iss2/src/static/pdf'
-        },
-    }
+export class SystemController {
     constructor(
-        private readonly logService: LogService,
+        private readonly logger: LogService,
         private readonly journalService: JournalService
         ) {}
     
@@ -54,23 +40,143 @@ export class AppController {
     @UseGuards(UploadGuard)
     @UseInterceptors(FileInterceptor('file', {
         storage: diskStorage({	
-            destination:(req, file, cb) => {	
+            destination:(req, file, cb) => {
+                console.log(file);
                 const { mimetype } = file;	
-                const fileType = AppController.getFileType(mimetype);	
-                cb(null, `../files}`);	
+                const fileType = SystemController.getFileType(mimetype);	
+                cb(null, `../files`);	
             },	
             filename: (req, file, cb) => {
-              cb(null, `${file.originalname}|${Date.now()}`)	
-            }	
+              cb(null, `${Date.now()}${Math.floor(Math.random()*100)}|${file.originalname}`)	
+            },
+            limits: {
+                fileSize: `${ 5 * 1024 * 1024 }`,
+            },
         }),
     }))
-    upload(@UploadedFile() file, @Body() bd: JournalSubmit) {
-        
-        this.logger.info(file);
+    async upload(@UploadedFile() file, @Body() bd: JournalSubmit, @Req() req) { // JournalSubmit
+        this.logger.debug('upload');
+        const { filename } = file;
+        bd.path = filename;
+        try {
+            await this.journalService.saveByOption({
+                ...bd,
+                uid: req.headers.uid,
+            });
+        } catch (e) {
+            this.logger.debug(e);
+            this.logger.error(e);
+            return {
+                code: 10002,
+                msg: e.msg,
+            }
+        }
+        return {
+            code: 10000,
+        }
     }
 
-    @Post('uploadInfo')
-    async getUploadInfo(@Body() bd) {
+    @Post('getUploadInfo')
+    async getUploadInfo(@Body() bd: JournalGetInfo) {
+        let infos: Journal[];
+        try {
+            infos = await this.journalService.searchAll({
+                uid: bd.uid,
+            });
+        } catch (e) {
+            return {
+                code: 10004,
+                msg: e,
+            }
+        }
+
+        return {
+            code: 10000,
+            data: infos,
+        }
+    }
+
+    @Post('updateUploadInfo')
+    @UseGuards(UploadGuard)
+    @UseInterceptors(FileInterceptor('file', {
+        storage: diskStorage({	
+            destination:(req, file, cb) => {	
+                const { mimetype } = file;	
+                const fileType = SystemController.getFileType(mimetype);	
+                cb(null, `../files`);	
+            },	
+            filename: (req, file, cb) => {
+              cb(null, `${Date.now()}${Math.floor(Math.random() * 100)}|${file.originalname}`)	
+            },
+            limits: {
+                fileSize: `${ 5 * 1024 * 1024 }`,
+            },
+        }),
+    }))
+    async updateInfo(@UploadedFile() file, @Body() bd: JournalUpdate, @Req() req) {
+        let journal = await this.journalService.search({
+            jid: bd.jid,
+            uid: req.headers.uid,
+        });
+        this.logger.debug(typeof journal.jid);
+        if (journal) {
+            journal = Object.assign({}, journal, bd);
+            journal.jid = parseInt((journal.jid as any), 10);
+            if (file) {
+                const oldFilePath = journal.path;
+                journal.path = file.filename;
+                exec(`rm -rf ../files/${oldFilePath}`, {}, (error) => {
+                    this.logger.error(error);
+                });
+            }
+            try {
+                await this.journalService.save(journal);
+            } catch (e) {
+                this.logger.debug(e);
+                this.logger.error(e);
+                return {
+                    code: 10004,
+                    msg: e,
+                }
+            }
+        }
+
+        return {
+            code: 10000,
+            data: journal,
+        }
         
+    }
+
+    @Post('deleteUploadInfo')
+    async deleteInfo(@Body() bd: JournalDelete) {
+        try {
+            await this.journalService.delete({
+                jid: bd.jid,
+                uid: bd.uid,
+            });
+        } catch (e) {
+            return {
+                code: 10004,
+                msg: e
+            }
+        }
+
+        let infos: Journal[];
+        try {
+            infos = await this.journalService.searchAll({
+                uid: bd.uid,
+            });
+        } catch (e) {
+            return {
+                code: 10004,
+                msg: e,
+            }
+        }
+
+        return {
+            code: 10000,
+            data: infos,
+        }
     }
 }

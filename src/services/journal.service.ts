@@ -4,7 +4,26 @@ import { Repository } from 'typeorm';
 import { Journal } from '../static/entity/journal.entity';
 
 interface IOption {
-    jid?: string;
+    uid?: number;
+    jid?: number;
+}
+
+interface IRemoveOption {
+    jid: number;
+    uid: number;
+}
+
+interface ISaveOption {
+    name: string;
+    path: string;
+    uid: number;
+    submitType: string;
+    abstract: string;
+    contactEmail?: string;
+    contactPhone?: number;
+    title: string;
+    keyword?: string;
+    notes?: string;
 }
 
 @Injectable()
@@ -32,6 +51,29 @@ export class JournalService {
         return this.journalRepository.save(journal);
     }
 
+    async saveByOption(option: ISaveOption): Promise<Journal> {
+        const journal = new Journal();
+        journal.name = option.name;
+        journal.submitType = option.submitType;
+        journal.path = option.path;
+        journal.uid = option.uid;
+        journal.title = option.title;
+        journal.abstract = option.abstract;
+        if (option.contactEmail) {
+            journal.contactEmail = option.contactEmail;
+        }
+        if (option.contactPhone) {
+            journal.contactPhone = option.contactPhone;
+        }
+        if (option.keyword) {
+            journal.keyword = option.keyword;
+        }
+        if (option.notes) {
+            journal.notes = option.notes;
+        }
+        return await this.save(journal);
+    }
+
     async find(journal: Journal): Promise<Journal> {
         return this.journalRepository.findOne(journal);
     }
@@ -39,6 +81,19 @@ export class JournalService {
     async search(option: IOption): Promise<Journal> {
         let journal = new Journal();
         journal = { ...journal, ...option };
-        return this.journalRepository.findOne(journal);
+        return await this.journalRepository.findOne(journal);
+    }
+
+    async searchAll(option: IOption): Promise<Journal[]> {
+        let journal = new Journal();
+        journal = { ...journal, ...option };
+        return await this.journalRepository.find(journal);
+    }
+
+    async delete(option: IRemoveOption) {
+        const journal = new Journal();
+        journal.jid = option.jid;
+        journal.uid = option.uid;
+        return await this.journalRepository.remove(journal);
     }
 }
