@@ -12,7 +12,7 @@ export class LogService {
         configure({
             appenders: {
                 debug: { type: 'console' },
-                info: { type: 'DateFile', filename: './log/cheese.log' },
+                info: { type: 'dateFile', filename: './log/cheese.log' },
                 error: { type: 'file', filename: './log/error.log' },
                 count: { type: 'file', filename: './log/count.log' },
             },
