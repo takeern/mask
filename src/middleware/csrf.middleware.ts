@@ -14,10 +14,11 @@ export class CsrfMiddleware implements NestMiddleware {
     resolve(): (req, res, next) => void {
         return async (req, res, next) => {
             this.logService.debug('CsrfMiddleware');
+            
             const { token } = req.cookies;
-            this.logService.debug(token)
+            this.logService.debug(req.body);
             if (token && req.method === 'POST') {
-                const checkAuth = req.headers['x-csrf-token'];
+                const checkAuth = req.body['x-csrf-token'];
                 this.logService.debug(checkAuth);
                 if (token !== checkAuth) {
                     return res.send({
@@ -35,7 +36,7 @@ export class CsrfMiddleware implements NestMiddleware {
                 return {
                     code: 10005,
                     msg: 'Not logged in',
-                }
+                };
             }
             this.logService.debug(req.body);
             next();

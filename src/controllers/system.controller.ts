@@ -1,4 +1,4 @@
-import { Controller, UseGuards, Post, Body, FileInterceptor, UploadedFile, UseInterceptors, Req } from '@nestjs/common';
+import { Controller, UseGuards, UseInterceptors, Post, Body, FileInterceptor, UploadedFile, Req } from '@nestjs/common';
 import { diskStorage } from 'multer';
 const { exec } = require('child_process');
 
@@ -6,13 +6,17 @@ import { LogService } from '../services/log.service';
 import { JournalService }  from '../services/journal.service';
 import { Journal } from '../static/entity/journal.entity';
 import { UploadGuard } from '../middleware/upload.guard';
+import { TimeoutInterceptor } from '../middleware/timeout.interceptor';
 import {
     JournalSubmit,
     JournalGetInfo,
     JournalUpdate,
     JournalDelete,
 } from '../static/dto/journal.dto';
+import { CsrfGuard } from '../middleware/csrf.guard';
 
+@UseGuards(CsrfGuard)
+@UseInterceptors(TimeoutInterceptor)
 @Controller()
 export class SystemController {
     constructor(
@@ -54,15 +58,12 @@ export class SystemController {
             },
         }),
     }))
-    async upload(@UploadedFile() file, @Body() bd: JournalSubmit, @Req() req) { // JournalSubmit
+    async upload(@UploadedFile() file, @Body() bd: JournalSubmit) { // JournalSubmit
         this.logger.debug('upload');
         const { filename } = file;
         bd.path = filename;
         try {
-            await this.journalService.saveByOption({
-                ...bd,
-                uid: req.headers.uid,
-            });
+            await this.journalService.saveByOption(bd);
         } catch (e) {
             this.logger.debug(e);
             this.logger.error(e);
@@ -113,10 +114,10 @@ export class SystemController {
             },
         }),
     }))
-    async updateInfo(@UploadedFile() file, @Body() bd: JournalUpdate, @Req() req) {
+    async updateInfo(@UploadedFile() file, @Body() bd: JournalUpdate) {
         let journal = await this.journalService.search({
             jid: bd.jid,
-            uid: req.headers.uid,
+            uid: bd.uid,
         });
         this.logger.debug(typeof journal.jid);
         if (journal) {

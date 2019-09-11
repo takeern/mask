@@ -29,6 +29,9 @@ class JournalSubmit {
     notes: string;
 
     path: string;
+
+    @IsNotEmpty()
+    uid: number;
 }
 
 class JournalGetInfo {
@@ -47,7 +50,11 @@ class JournalDelete {
 class JournalUpdate {
     @IsNotEmpty()
     jid: number;
+
+    @IsNotEmpty()
+    uid: number;
 }
+
 export {
     JournalSubmit,
     JournalGetInfo,

@@ -6,11 +6,13 @@ import { Journal } from '../static/entity/journal.entity';
 
 // module
 import { LogModule } from './log.module';
+import { UserModule } from './user.module';
 
 @Module({
     imports: [
         TypeOrmModule.forFeature([Journal]),
         LogModule,
+        UserModule,
     ], // 引入实体类
     providers: [JournalService], // 为服务提供注册商
     controllers: [SystemController], // 控制器

@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Query, Res, Req } from '@nestjs/common';
+import { Controller, UseGuards, Post, Body, Get, Query, Res, Req, Param } from '@nestjs/common';
 import { LogService } from '../services/log.service';
 import { UserService }  from '../services/user.service';
 import { AuthService }  from '../services/auth.service';
@@ -8,7 +8,6 @@ import {
     UserCheckCodeDto,
     UserRegisterDto,
 } from '../static/dto/user.dto';
-
 
 
 @Controller()
@@ -82,7 +81,9 @@ export class UserController {
     }
 
     @Post('signIn')
-    async signIn(@Body() bd: UserSignInDto, @Res() response, @Req() req) {
+    async signIn(@Body() bd, @Res() response, @Req() req) { //UserSignInDto
+        this.logger.debug(bd);
+        // this.logger.debug(req);
         const { account, password } = bd;
 
         const accountCheck = await this.userService.search({
@@ -97,7 +98,7 @@ export class UserController {
         const user = accountCheck || emailCheck;
         
         if (!user) {
-            response.send({
+            return response.send({
                 code: 10002,
                 msg: 'the account with this keycode was not found.',
             });

@@ -6,19 +6,20 @@ import * as helmet from 'helmet';
 import * as rateLimit from 'express-rate-limit';
 import * as cookieParser from 'cookie-parser';
 
-
 const heapdump = require('heapdump');
 const memwatch = require('node-memwatch');
+const bodyParser = require('body-parser');
 declare const module: any;
 
 async function bootstrap() {
     const app = await NestFactory.create(ApplicationModule, {
         cors: true,
     });
+    app.use(cookieParser());
+    app.use(bodyParser.urlencoded({ extended: false }));
     app.useWebSocketAdapter(new WsAdapter(app.getHttpServer()));
     app.useGlobalPipes(new ValidationPipe());
     app.use(helmet());
-    app.use(cookieParser());
     app.use(
         rateLimit({
             windowMs: 5 * 60 * 1000, // 5 minutes

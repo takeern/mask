@@ -7,7 +7,6 @@ const orm = require('../config/orm.json');
 //middleware 
 import { AccessMiddleware } from './middleware/fiterSpiderData.middleware';
 import { CountMiddleware } from './middleware/count.middleware';
-import { CsrfMiddleware } from './middleware/csrf.middleware';
 
 // controller
 import { AppController } from './controllers/app.controller';
@@ -36,8 +35,6 @@ import { Journal } from './static/entity/journal.entity';
 })
 export class ApplicationModule {
     configure(consumer: MiddlewareConsumer) {
-        consumer.apply(CsrfMiddleware)
-            .forRoutes(SystemController);
         consumer.apply(CountMiddleware, AccessMiddleware)
             .forRoutes(AppController, UserController, SystemController);
     }
