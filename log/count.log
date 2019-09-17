@@ -264,3 +264,13 @@
 [2019-09-11T12:12:16.603] [INFO] count - { path: '/getUploadInfo', query: {}, ip: '::ffff:127.0.0.1' }
 [2019-09-11T12:12:54.442] [INFO] count - { path: '/getUploadInfo', query: {}, ip: '::ffff:127.0.0.1' }
 [2019-09-11T12:13:04.180] [INFO] count - { path: '/deleteUploadInfo', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-16T18:08:52.423] [INFO] count - { path: '/signIn', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-16T18:09:15.211] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-16T18:11:59.755] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-17T11:26:20.936] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-17T11:27:23.161] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-17T11:28:44.701] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-17T11:29:15.985] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-17T11:33:37.574] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-17T11:35:55.102] [INFO] count - { path: '/getUploadInfo', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-17T11:53:19.876] [INFO] count - { path: '/deleteUploadInfo', query: {}, ip: '::ffff:127.0.0.1' }

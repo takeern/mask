@@ -9,6 +9,21 @@ import * as cookieParser from 'cookie-parser';
 const heapdump = require('heapdump');
 const memwatch = require('node-memwatch');
 const bodyParser = require('body-parser');
+const multer  = require('multer');
+const upload = multer({
+    storage: multer.diskStorage({	
+        destination:(req, file, cb) => {
+            const { mimetype } = file;	
+            cb(null, `../files`);	
+        },	
+        filename: (req, file, cb) => {
+            cb(null, `${Date.now()}${Math.floor(Math.random()*100)}|${file.originalname}`)	
+        },
+        limits: {
+            fileSize: `${ 5 * 1024 * 1024 }`,
+        },
+    }),
+});
 declare const module: any;
 
 async function bootstrap() {
@@ -17,6 +32,7 @@ async function bootstrap() {
     });
     app.use(cookieParser());
     app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(upload.single('file'));
     app.useWebSocketAdapter(new WsAdapter(app.getHttpServer()));
     app.useGlobalPipes(new ValidationPipe());
     app.use(helmet());

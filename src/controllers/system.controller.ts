@@ -41,26 +41,10 @@ export class SystemController {
     };
 
     @Post('upload')
-    @UseGuards(UploadGuard)
-    @UseInterceptors(FileInterceptor('file', {
-        storage: diskStorage({	
-            destination:(req, file, cb) => {
-                console.log(file);
-                const { mimetype } = file;	
-                const fileType = SystemController.getFileType(mimetype);	
-                cb(null, `../files`);	
-            },	
-            filename: (req, file, cb) => {
-              cb(null, `${Date.now()}${Math.floor(Math.random()*100)}|${file.originalname}`)	
-            },
-            limits: {
-                fileSize: `${ 5 * 1024 * 1024 }`,
-            },
-        }),
-    }))
-    async upload(@UploadedFile() file, @Body() bd: JournalSubmit) { // JournalSubmit
-        this.logger.debug('upload');
-        const { filename } = file;
+    async upload(@Body() bd, @Req() req) { // JournalSubmit
+        this.logger.debug(bd);
+        this.logger.debug(req.file);
+        const { filename } = req.file;
         bd.path = filename;
         try {
             await this.journalService.saveByOption(bd);
@@ -98,27 +82,12 @@ export class SystemController {
     }
 
     @Post('updateUploadInfo')
-    @UseGuards(UploadGuard)
-    @UseInterceptors(FileInterceptor('file', {
-        storage: diskStorage({	
-            destination:(req, file, cb) => {	
-                const { mimetype } = file;	
-                const fileType = SystemController.getFileType(mimetype);	
-                cb(null, `../files`);	
-            },	
-            filename: (req, file, cb) => {
-              cb(null, `${Date.now()}${Math.floor(Math.random() * 100)}|${file.originalname}`)	
-            },
-            limits: {
-                fileSize: `${ 5 * 1024 * 1024 }`,
-            },
-        }),
-    }))
-    async updateInfo(@UploadedFile() file, @Body() bd: JournalUpdate) {
+    async updateInfo(@Body() bd: JournalUpdate, @Req() req) {
         let journal = await this.journalService.search({
             jid: bd.jid,
             uid: bd.uid,
         });
+        const file = req.file;
         this.logger.debug(typeof journal.jid);
         if (journal) {
             journal = Object.assign({}, journal, bd);

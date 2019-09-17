@@ -505,3 +505,159 @@
   code: 127,
   signal: null,
   cmd: 'rm -rf ../files/15674986561169|2019-1-6_4.pdf' }
+[2019-09-16T18:12:00.299] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'uid' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'uid\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'uid\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  parameters: [] }
+[2019-09-17T11:26:21.100] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'path' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'path\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'path\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, 4, DEFAULT, \'takeern\', \'123123123213\', \'18162323650\', \'12312\', \'312312\', \'312312\', \'jissr\', \'13123\', DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, ?, DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)',
+  parameters:
+   [ 4,
+     'takeern',
+     '123123123213',
+     '18162323650',
+     '12312',
+     '312312',
+     '312312',
+     'jissr',
+     '13123' ] }
+[2019-09-17T11:27:23.321] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'path' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'path\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'path\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, 4, DEFAULT, \'takeern\', \'123123123213\', \'18162323650\', \'12312\', \'312312\', \'312312\', \'jissr\', \'13123\', DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, ?, DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)',
+  parameters:
+   [ 4,
+     'takeern',
+     '123123123213',
+     '18162323650',
+     '12312',
+     '312312',
+     '312312',
+     'jissr',
+     '13123' ] }
+[2019-09-17T11:28:44.894] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'path' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'path\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'path\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, 4, DEFAULT, \'takeern\', \'123123123213\', \'18162323650\', \'12312\', \'312312\', \'312312\', \'jissr\', \'13123\', DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, ?, DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)',
+  parameters:
+   [ 4,
+     'takeern',
+     '123123123213',
+     '18162323650',
+     '12312',
+     '312312',
+     '312312',
+     'jissr',
+     '13123' ] }
+[2019-09-17T11:29:16.814] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'path' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'path\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'path\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, 4, DEFAULT, \'takeern\', \'123123123213\', \'18162323650\', \'12312\', \'312312\', \'312312\', \'jissr\', \'13123\', DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `journal`(`jid`, `uid`, `path`, `name`, `contactEmail`, `contactPhone`, `title`, `keyword`, `abstract`, `submitType`, `notes`, `createTime`, `updateTime`) VALUES (DEFAULT, ?, DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)',
+  parameters:
+   [ 4,
+     'takeern',
+     '123123123213',
+     '18162323650',
+     '12312',
+     '312312',
+     '312312',
+     'jissr',
+     '13123' ] }
