@@ -1,11 +1,12 @@
-import { IsEmail, IsNotEmpty, IsInt, MaxLength } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsInt, MaxLength, IsOptional } from 'class-validator';
 
 class searchJournal {
 
-    account: string;
+    account?: string;
 
     @IsEmail()
-    email: string;
+    @IsOptional()
+    email?: string;
   
     @IsNotEmpty()
     updateTime: string;

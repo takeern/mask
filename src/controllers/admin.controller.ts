@@ -109,13 +109,18 @@ export class AdminController {
         journal.publishStatus = true;
         await this.journalService.save(journal);
 
-        await this.changeFileName(`/home/file/${journal.path}`, `/home/file/${journal.publishName}`)
-        const send = request.post('http://45.32.84.18:4000/upload');
-        const form = send.form();
-        form.append('ts', Date.now());
-        form.append('journalType', journal.submitType.toUpperCase());
-        form.append('file', fs.createReadStream(`/home/files/${journal.publishName}`));
-        await this.changeFileName(`/home/file/${journal.publishName}`, `/home/file/${journal.path}`)
+        try {
+            await this.changeFileName(`//Users/bilibili/github/files/${journal.path}`, `//Users/bilibili/github/files/${journal.publishName}`)
+            const send = request.post('http://45.32.84.18:4000/upload');
+            const form = send.form();
+            form.append('ts', Date.now());
+            form.append('journalType', journal.submitType.toUpperCase());
+            form.append('file', fs.createReadStream(`//Users/bilibili/github/files/${journal.publishName}`));
+            await this.changeFileName(`//Users/bilibili/github/files/${journal.publishName}`, `//Users/bilibili/github/files/${journal.path}`)
+        } catch(e) {
+            this.logger.debug(e);
+            this.logger.error(e);
+        }
         return {
             code: 10000
         };

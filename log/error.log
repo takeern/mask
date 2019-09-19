@@ -661,3 +661,171 @@
      '312312',
      'jissr',
      '13123' ] }
+[2019-09-19T17:03:37.277] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'account' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'account\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'account\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  parameters: [] }
+[2019-09-19T17:04:01.812] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'account' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'account\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'account\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  parameters: [] }
+[2019-09-19T17:05:00.750] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'account' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'account\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'account\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  parameters: [] }
+[2019-09-19T17:05:37.010] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'account' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'account\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'account\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  parameters: [] }
+[2019-09-19T17:05:43.313] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'account' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'account\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'account\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  parameters: [] }
+[2019-09-19T17:05:46.538] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'account' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'account\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'account\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  parameters: [] }
+[2019-09-19T17:05:49.112] [ERROR] error - { QueryFailedError: ER_NO_DEFAULT_FOR_FIELD: Field 'account' doesn't have a default value
+    at new QueryFailedError (/Users/bilibili/github/mask/node_modules/typeorm/error/QueryFailedError.js:11:28)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/typeorm/driver/mysql/MysqlQueryRunner.js:169:45)
+    at Query.<anonymous> (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:525:10)
+    at Query._callback (/Users/bilibili/github/mask/node_modules/mysql/lib/Connection.js:491:16)
+    at Query.Sequence.end (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at Query.ErrorPacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/bilibili/github/mask/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+  message:
+   'ER_NO_DEFAULT_FOR_FIELD: Field \'account\' doesn\'t have a default value',
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: 'Field \'account\' doesn\'t have a default value',
+  sqlState: 'HY000',
+  index: 0,
+  sql:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  name: 'QueryFailedError',
+  query:
+   'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
+  parameters: [] }

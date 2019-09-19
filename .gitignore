@@ -192,3 +192,4 @@ release/
 distTs/
 file
 log/
+log/*
