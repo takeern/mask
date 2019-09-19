@@ -297,3 +297,9 @@
 [2019-09-17T12:28:34.956] [INFO] count - { path: '/getUploadInfo', query: {}, ip: '::ffff:127.0.0.1' }
 [2019-09-17T15:30:40.224] [INFO] count - { path: '/getUploadInfo', query: {}, ip: '::ffff:127.0.0.1' }
 [2019-09-17T15:30:56.474] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-19T19:03:54.402] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-19T19:04:03.798] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-19T19:04:10.884] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-19T19:04:13.315] [INFO] count - { path: '/getUploadInfo', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-19T19:04:39.125] [INFO] count - { path: '/upload', query: {}, ip: '::ffff:127.0.0.1' }
+[2019-09-19T19:04:41.396] [INFO] count - { path: '/getUploadInfo', query: {}, ip: '::ffff:127.0.0.1' }
