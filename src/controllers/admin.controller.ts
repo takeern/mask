@@ -17,7 +17,7 @@ const fs = require('fs');
 @UseGuards(adminGuard)
 @UseInterceptors(TimeoutInterceptor)
 @Controller()
-export class adminController {
+export class AdminController {
     constructor(
         private readonly logger: LogService,
         private readonly journalService: JournalService,

@@ -16,5 +16,6 @@ import { UserModule } from './user.module';
     ], // 引入实体类
     providers: [JournalService], // 为服务提供注册商
     controllers: [SystemController], // 控制器
+    exports: [ JournalService ],
 })
 export class JournalModule { }
