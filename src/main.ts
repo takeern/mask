@@ -14,7 +14,7 @@ const upload = multer({
     storage: multer.diskStorage({	
         destination:(req, file, cb) => {
             const { mimetype } = file;	
-            cb(null, `../files`);	
+            cb(null, `/home/files`);	
         },	
         filename: (req, file, cb) => {
             cb(null, `${Date.now()}${Math.floor(Math.random()*100)}|${file.originalname}`)	

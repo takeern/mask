@@ -191,3 +191,4 @@ release/
 .history
 distTs/
 file
+log/

@@ -63,9 +63,22 @@ export class Journal {
     })
     notes: string;
 
+    @Column({
+        type: 'varchar',
+        length: 30,
+        default: 'nothing',
+    })
+    publishName: string;
+
     @CreateDateColumn()
     createTime: Date;
 
     @UpdateDateColumn()
     updateTime: Date;
+
+    @Column({
+        type: 'bool',
+        default: false,
+    })
+    publishStatus: Boolean;
 }

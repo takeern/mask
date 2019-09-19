@@ -12,6 +12,7 @@ import { CountMiddleware } from './middleware/count.middleware';
 import { AppController } from './controllers/app.controller';
 import { UserController } from './controllers/user.controller';
 import { SystemController } from './controllers/system.controller';
+import { adminController } from './controllers/admin.controller';
 
 // modules
 import { LogModule } from './module/log.module';
@@ -20,6 +21,7 @@ import { JournalModule } from './module/journal.module';
 
 import { User } from './static/entity/user.entity';
 import { Journal } from './static/entity/journal.entity';
+import { Publish } from './static/entity/publish.entity';
 
 @Module({
     imports: [
@@ -28,7 +30,7 @@ import { Journal } from './static/entity/journal.entity';
         JournalModule,
         TypeOrmModule.forRoot({
             ...orm,
-            entities: [User, Journal], // 实体存放的目录, 目前只能靠文件后缀识别
+            entities: [User, Journal, Publish], // 实体存放的目录, 目前只能靠文件后缀识别
         }),
     ],
     controllers: [AppController],

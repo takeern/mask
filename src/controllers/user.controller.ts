@@ -82,7 +82,6 @@ export class UserController {
 
     @Post('signIn')
     async signIn(@Body() bd, @Res() response, @Req() req) { //UserSignInDto
-        this.logger.debug(bd);
         // this.logger.debug(req);
         const { account, password } = bd;
 

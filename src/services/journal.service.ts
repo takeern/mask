@@ -24,6 +24,12 @@ interface ISaveOption {
     title: string;
     keyword?: string;
     notes?: string;
+    publishName?: string;
+}
+
+interface IComplexSearchOption {
+    uid?: number;
+    updateTime?: string;
 }
 
 @Injectable()
@@ -59,6 +65,7 @@ export class JournalService {
         journal.uid = option.uid;
         journal.title = option.title;
         journal.abstract = option.abstract;
+        
         if (option.contactEmail) {
             journal.contactEmail = option.contactEmail;
         }
@@ -70,6 +77,9 @@ export class JournalService {
         }
         if (option.notes) {
             journal.notes = option.notes;
+        }
+        if (option.publishName) {
+            journal.publishName = option.publishName;
         }
         return await this.save(journal);
     }
@@ -88,6 +98,24 @@ export class JournalService {
         let journal = new Journal();
         journal = { ...journal, ...option };
         return await this.journalRepository.find(journal);
+    }
+
+    async complexSearch(option: IComplexSearchOption): Promise<Journal[]> {
+        const { uid, updateTime } = option;
+        let users: Journal[];
+        if (uid) {
+            users = await this.journalRepository
+                .createQueryBuilder('journal')
+                .where('journal.uid = :uid', { uid: uid })
+                .andWhere('journal.updateTime > :updateTime', { updateTime: updateTime })
+                .getMany();
+        } else {
+            users = await this.journalRepository
+                .createQueryBuilder('journal')
+                .where('journal.updateTime > :updateTime', { updateTime: updateTime })
+                .getMany();
+        }
+        return users;
     }
 
     async delete(option: IRemoveOption) {
