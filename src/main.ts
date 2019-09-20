@@ -43,7 +43,7 @@ async function bootstrap() {
             message: 'Too many accounts created from this IP, please try again after 15 minutes',
         }),
     );
-    await app.listen(4000);
+    await app.listen(4001);
 
     if (module.hot) {
         module.hot.accept();

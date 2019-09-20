@@ -16,7 +16,7 @@ export class adminGuard implements CanActivate {
         context: ExecutionContext,
     ): Promise<boolean> {
         const req = context.switchToHttp().getRequest();
-        const clientIp = req.ip;
+        const clientIp = req.headers['x-real-ip'];
         this.logService.debug(clientIp);
         if (ipCheck.whiteIp.length !== 0) {
             const isCheck = ipCheck.whiteIp.find(item => {
