@@ -66,26 +66,6 @@ export class AdminController {
         };
     }
 
-    @Post('addPublishName')
-    async addPublishName(@Body() bd: addPublishDto) {
-        const journal = await this.journalService.search({
-            jid: bd.jid,
-        });
-
-        if (!journal) {
-            return {
-                code: 10004,
-                msg: `can not find journal with jid: ${bd.jid}`,
-            }
-        }
-
-        journal.publishName = bd.publishName;
-        await this.journalService.save(journal);
-        return {
-            code: 10000,
-        }
-    }
-
     @Post('publishJournal')
     async publishJournal(@Body() bd: publishJournal) {
         const journal = await this.journalService.search({
@@ -99,30 +79,63 @@ export class AdminController {
             }
         }
 
-        if (!journal.publishName || journal.publishName === 'nothing') {
+        if (!bd.publishName.match(/(.pdf)$/g)) {
             return {
                 code: 10004,
-                msg: `journal can not find publishName`,
+                msg: `publishName should be pdf`,
             }
         }
 
+        journal.publishName = bd.publishName;
         journal.publishStatus = true;
+
         await this.journalService.save(journal);
 
+
         try {
-            await this.changeFileName(`//Users/bilibili/github/files/${journal.path}`, `//Users/bilibili/github/files/${journal.publishName}`)
-            const send = request.post('http://45.32.84.18:4000/upload');
-            const form = send.form();
-            form.append('ts', Date.now());
-            form.append('journalType', journal.submitType.toUpperCase());
-            form.append('file', fs.createReadStream(`//Users/bilibili/github/files/${journal.publishName}`));
-            await this.changeFileName(`//Users/bilibili/github/files/${journal.publishName}`, `//Users/bilibili/github/files/${journal.path}`)
+            const journalType = journal.submitType === 'bryanhousepub' ? 'bryanhousepub' : journal.submitType.toUpperCase();
+            await this.changeFileName(`/home/files/${journal.path}`, `/home/files/${bd.publishName}`);
+            const formData = {
+                ts: Date.now(),
+                journalType,
+                file: fs.createReadStream(`/home/files/${bd.publishName}`),
+            };
+
+            const res = await this.asyncRequest('http://45.32.84.18:4000/upload', formData);
+            this.logger.debug(typeof res.body);
+            this.logger.debug(res.body.code);
+            await this.changeFileName(`/home/files/${bd.publishName}`, `/home/files/${journal.path}`);
+            if (res.body && res.body.code !== 1) {
+                return {
+                    code: 10003,
+                    msg: res.body.msg,
+                };
+            }
         } catch(e) {
             this.logger.debug(e);
             this.logger.error(e);
+            return {
+                code: 10005,
+                msg: 'server error',
+            };
         }
         return {
             code: 10000
         };
+    }
+
+    async asyncRequest(url: string, formData: any): Promise<any>{
+        return new Promise((resolve) => {
+            request.post({
+                url,
+                formData,
+            }, (err, httpResponse, body) => {
+                resolve({
+                    err,
+                    httpResponse,
+                    body: JSON.parse(body),
+                });
+            })
+        });
     }
 }

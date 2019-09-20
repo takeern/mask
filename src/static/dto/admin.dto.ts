@@ -15,6 +15,9 @@ class searchJournal {
 class publishJournal {
     @IsNotEmpty()
     jid: number;
+
+    @IsNotEmpty()
+    publishName: string;
 }
 
 class addPublishDto {

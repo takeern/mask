@@ -829,3 +829,23 @@
   query:
    'INSERT INTO `user`(`id`, `account`, `password`, `email`, `createTime`, `updateTime`) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)',
   parameters: [] }
+[2019-09-20T16:56:46.568] [ERROR] error - { [Error: ENOENT: no such file or directory, rename '/Users/bilibili/github/files/156889103439219|2019-1-6_1.pdf' -> '/Users/bilibili/github/files/12314.pdf']
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'rename',
+  path:
+   '/Users/bilibili/github/files/156889103439219|2019-1-6_1.pdf',
+  dest: '/Users/bilibili/github/files/12314.pdf' }
+[2019-09-20T17:23:34.241] [ERROR] error - { [Error: ENOENT: no such file or directory, rename '/Users/bilibili/github/files/156897100157544|2019-1-6_3.pdf' -> '/Users/bilibili/github/files/test.pdf']
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'rename',
+  path:
+   '/Users/bilibili/github/files/156897100157544|2019-1-6_3.pdf',
+  dest: '/Users/bilibili/github/files/test.pdf' }
+[2019-09-20T17:25:33.213] [ERROR] error - { [Error: ENOENT: no such file or directory, rename '/Users/bilibili/github/files/15689710019977|2019-1-6_3.pdf' -> '/Users/bilibili/github/files/test.pdf']
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'rename',
+  path: '/Users/bilibili/github/files/15689710019977|2019-1-6_3.pdf',
+  dest: '/Users/bilibili/github/files/test.pdf' }
