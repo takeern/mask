@@ -12,6 +12,7 @@ interface Iconfig {
 
 @Controller()
 export class AppController {
+    private timeoutId: number;
     private journalMap = {
         JISSR: {
             path: '/home/quicklyReactSsr/parsePage',
@@ -75,7 +76,7 @@ export class AppController {
             }
         }
         fs.writeFile(`${setPath}`, file.buffer, () => {
-            if (fileType === 'txt') {
+            if (fileType === 'txt' || journalType === 'IJOMSR') {
                 exec(`node test.js`, {
                     cwd: `${journal.path}`,
                 }, function (error, stdout, stderr) {
@@ -86,6 +87,7 @@ export class AppController {
             }
             this.logService.info(`${setPath}`);
         });
+
         return {
             code: 1,
             path: `${setPath}`,
