@@ -21,6 +21,10 @@ export class AppController {
             path: '/home/journal1/parsePage',
             pdfPath: '/home/journal1/src/assets/pdf'
         },
+        IJOMSR: {
+            path: '/home/pink/parsePage',
+            pdfPath: '/home/pink/src/static/pdf'
+        },
         bryanhousepub: {
             path: '/home/iss2/parsePage',
             pdfPath: '/home/iss2/src/static/pdf'
