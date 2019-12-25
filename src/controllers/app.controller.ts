@@ -26,6 +26,10 @@ export class AppController {
             path: '/home/pink/parsePage',
             pdfPath: '/home/pink/src/static/pdf'
         },
+        JSSHL: {
+            path: '/home/jsshl/parsePage',
+            pdfPath: '/home/jsshl/src/static/pdf'
+        },
         bryanhousepub: {
             path: '/home/iss2/parsePage',
             pdfPath: '/home/iss2/src/static/pdf'
@@ -76,7 +80,7 @@ export class AppController {
             }
         }
         fs.writeFile(`${setPath}`, file.buffer, () => {
-            if (fileType === 'txt' || journalType === 'IJOMSR') {
+            if (fileType === 'txt' || journalType === 'IJOMSR' || journalType === 'JSSHL') {
                 exec(`node test.js`, {
                     cwd: `${journal.path}`,
                 }, function (error, stdout, stderr) {
