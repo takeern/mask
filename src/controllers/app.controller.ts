@@ -12,7 +12,6 @@ interface Iconfig {
 
 @Controller()
 export class AppController {
-    private timeoutId: number;
     private journalMap = {
         JISSR: {
             path: '/home/quicklyReactSsr/parsePage',
