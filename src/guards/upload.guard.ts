@@ -9,6 +9,7 @@ export class UploadGuard implements CanActivate {
     ): boolean | Promise<boolean> | Observable<boolean> {
         const req = context.switchToHttp().getRequest();
         const clientIp = req.ip;
+	console.log(clientIp);
         if (ipCheck.whiteIp.length !== 0) {
             const isCheck = ipCheck.whiteIp.find(item => {
                 return clientIp.indexOf(item) !== -1;
