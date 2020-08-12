@@ -43,7 +43,7 @@ export class AppController {
             pdfPath: '/home/iss2/src/static/pdf',
             filePath: '/home/iss2/dist',
         },
-        iss3: {
+        ISS3: {
             path: '/home/iss3/parsePage',
             pdfPath: '/home/iss3/src/static/pdf',
             filePath: '/home/iss3/dist',
