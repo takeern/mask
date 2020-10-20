@@ -3,7 +3,7 @@ import { AppController } from './controllers/app.controller';
 // import { AppService } from './app.service';
 import { JournalService } from '../src/services/journal.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Journal } from '../src/static/entity/journal.entity';
+import { Journal } from './static/entity/journal.entity';
 const orm = require('../config/orm.json');
 
 //middleware 
@@ -15,6 +15,7 @@ import { CountMiddleware } from './middleware/count.middleware';
 import { LogModule } from './module/log.module';
 import { mainModule } from './module/main.module';
 import { JournalModule } from './module/journal.module';
+import { from } from 'rxjs';
 
 
 @Module({
