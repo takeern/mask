@@ -1,8 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ApplicationModule } from './app.module';
 import { WsAdapter } from '@nestjs/websockets/adapters';
-const heapdump = require('heapdump');
-const memwatch = require('node-memwatch');
 declare const module: any;
 
 async function bootstrap() {

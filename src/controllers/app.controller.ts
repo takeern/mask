@@ -1,8 +1,11 @@
-import { Controller, UseGuards, Post, Body, FileInterceptor, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Controller, UseGuards, Post, Body, FileInterceptor, UploadedFile, UseInterceptors, Request } from '@nestjs/common';
 import { LogService } from '../services/log.service';
 import { UploadGuard } from '../guards/upload.guard';
+import { JournalService } from '../services/journal.service';
+import { Journal } from '../static/entity/journal.entity';
 const { exec, cwd } = require('child_process');
 const fs = require('fs');
+const iconv = require('iconv-lite');
 
 interface Iconfig {
 	bookName?: string;
@@ -65,11 +68,11 @@ export class AppController {
         },
     }
     constructor(
-        private readonly logService: LogService
+        private readonly logService: LogService,
+        private readonly journalService: JournalService
         ) {}
     
     static getFileType (mimeType: string): string {
-        console.log(mimeType);
         let fileType: string;
         if (mimeType.match(/image/)) {
             fileType = 'img';
@@ -84,10 +87,47 @@ export class AppController {
         };
         return fileType;
     };
+
+    private parseTxt(data: string) {
+        const removeNO = function (item) {
+            return !!(item.trim());
+        };
+        const arr = [];
+        const list = data.split(/(\r\n)+/).filter(removeNO);
+        for(let i = 0, len = list.length/2; i < len; i ++) {
+            arr.push({
+                title: list[i * 2],
+                name: list[i * 2 + 1],
+            });
+        }
+        return arr;
+    }
+
+    private parsePdfName(data: string) {
+        const res = data.match(/(\d{4}-\d{1,2}-\d{1,2})_(\d{1,2}).pdf/i);
+        if (res.length) {
+            return {
+                time: res[1],
+                index: res[2],
+            }
+        }
+
+        this.logService.error(`parsePdfName error, name: ${data}`);
+        return null;
+    }
+
+    private parseTime(name: string) {
+        const res = name.match(/(\d{4}-\d{1,2}-\d{1,2})/i);
+        if (res.length) {
+            return res[0];
+        }
+        return 'parse error';
+    }
+
     @Post('upload')
     @UseGuards(UploadGuard)
     @UseInterceptors(FileInterceptor('file'))
-    upload(@UploadedFile() file, @Body() bd) {
+    async upload(@UploadedFile() file, @Body() bd, @Request() req) {
         const fileType = AppController.getFileType(file.mimetype);
         const { journalType, uploadType } = bd;
         const journal = this.journalMap[journalType];
@@ -107,8 +147,37 @@ export class AppController {
         } else if (uploadType === 'pdf') {
             if (fileType === 'txt') {
                 setPath = `${journal.path}/${file.originalname}`
+                const time = this.parseTime(file.originalname);
+                const journals = this.parseTxt(iconv.decode(file.buffer, 'GBK'));
+                journals.map(async (item, index) => {
+                    this.logService.info(`save journal`);
+                    let j = new Journal();
+                    j.journalTime = time;
+                    j.journalType = journalType;
+                    j.journalId = index + 1;
+                    
+                    j = await this.journalService.find(j) || j;
+
+                    j.artTitle = item.title;
+                    j.userName = item.name;
+                    j.ip = req.ip;
+                    this.logService.info(j);
+                    await this.journalService.save(j);
+                });
             } else if (fileType === 'pdf') {
                 setPath = `${journal.pdfPath}/${file.originalname}`
+                const info = this.parsePdfName(file.originalname);
+                if (info) {
+                    let j = new Journal();
+                    j.journalTime = info.time;
+                    j.journalType = journalType;
+                    j.journalId = parseInt(info.index, 10);
+
+                    j = await this.journalService.find(j) || j;
+                    j.isPublish = true;
+                    j.ip = req.ip;
+                    await this.journalService.save(j);
+                }
             } else {
                 return {
                     code: 2,
