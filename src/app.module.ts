@@ -1,5 +1,6 @@
 import { Module, MiddlewareConsumer } from '@nestjs/common';
 import { AppController } from './controllers/app.controller';
+import { JournalController } from './controllers/journal.controller';
 // import { AppService } from './app.service';
 import { JournalService } from '../src/services/journal.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -33,6 +34,6 @@ import { from } from 'rxjs';
 })
 export class ApplicationModule {
     configure(consumer: MiddlewareConsumer) {
-        consumer.apply(CountMiddleware, FiterDataMiddleware).forRoutes(AppController);
+        consumer.apply(CountMiddleware, FiterDataMiddleware).forRoutes(AppController, JournalController);
     }
 }
