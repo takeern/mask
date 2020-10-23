@@ -103,9 +103,9 @@ export class AppController {
         return arr;
     }
 
-    private parsePdfName(data: string) {
-        const res = data.match(/(\w{4})?-?(\d{4}-\d{1,2}-\d{1,2})_(\d{1,2}).pdf/i);
-        if (res.length) {
+    private parseName(data: string) {
+        const res = data.match(/(\w{4})?-?(\d{4}-\d{1,2}-\d{1,2})_?(\d{1,2})?.[pdf|txt]/i);
+        if (res?.length) {
             return {
                 type: res[1],
                 time: res[2],
@@ -115,14 +115,6 @@ export class AppController {
 
         this.logService.error(`parsePdfName error, name: ${data}`);
         return null;
-    }
-
-    private parseTime(name: string) {
-        const res = name.match(/(\d{4}-\d{1,2}-\d{1,2})/i);
-        if (res.length) {
-            return res[0];
-        }
-        return 'parse error';
     }
 
     @Post('upload')
@@ -147,14 +139,15 @@ export class AppController {
     
         } else if (uploadType === 'pdf') {
             if (fileType === 'txt') {
-                setPath = `${journal.path}/${file.originalname}`
-                const time = this.parseTime(file.originalname);
+                setPath = `${journal.path}/${file.originalname}`;
                 const journals = this.parseTxt(iconv.decode(file.buffer, 'GBK'));
-                journals.map(async (item, index) => {
+                const info = this.parseName(file.originalname);
+                for (let index = 0; index < journals.length; index++) {
                     this.logService.info(`save journal`);
+                    const item = journals[index];
                     let j = new Journal();
-                    j.journalTime = time;
-                    j.journalType = journalType;
+                    j.journalTime = info?.time;
+                    j.journalType = info?.type || journalType;
                     j.journalId = index + 1;
                     
                     j = await this.journalService.find(j) || j;
@@ -164,15 +157,16 @@ export class AppController {
                     j.ip = req.ip;
                     this.logService.info(j);
                     await this.journalService.save(j);
-                });
+                }
             } else if (fileType === 'pdf') {
                 setPath = `${journal.pdfPath}/${file.originalname}`
-                const info = this.parsePdfName(file.originalname);
+                const info = this.parseName(file.originalname);
                 if (info) {
                     let j = new Journal();
-                    j.journalTime = info.time;
-                    j.journalType = info.type || journalType;
-                    j.journalId = parseInt(info.index, 10);
+                    this.logService.info(info);
+                    j.journalTime = info?.time;
+                    j.journalType = info?.type || journalType;
+                    j.journalId = parseInt(info?.index, 10);
 
                     j = await this.journalService.find(j) || j;
                     j.isPublish = true;
