@@ -104,11 +104,12 @@ export class AppController {
     }
 
     private parsePdfName(data: string) {
-        const res = data.match(/(\d{4}-\d{1,2}-\d{1,2})_(\d{1,2}).pdf/i);
+        const res = data.match(/(\w{4})?-?(\d{4}-\d{1,2}-\d{1,2})_(\d{1,2}).pdf/i);
         if (res.length) {
             return {
-                time: res[1],
-                index: res[2],
+                type: res[1],
+                time: res[2],
+                index: res[3],
             }
         }
 
@@ -170,7 +171,7 @@ export class AppController {
                 if (info) {
                     let j = new Journal();
                     j.journalTime = info.time;
-                    j.journalType = journalType;
+                    j.journalType = info.type || journalType;
                     j.journalId = parseInt(info.index, 10);
 
                     j = await this.journalService.find(j) || j;
