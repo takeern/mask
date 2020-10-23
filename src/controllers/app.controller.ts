@@ -105,7 +105,7 @@ export class AppController {
 
     private parseName(data: string) {
         const res = data.match(/(\w{4})?-?(\d{4}-\d{1,2}-\d{1,2})_?(\d{1,2})?.[pdf|txt]/i);
-        if (res?.length) {
+        if (res.length) {
             return {
                 type: res[1],
                 time: res[2],
@@ -146,8 +146,8 @@ export class AppController {
                     this.logService.info(`save journal`);
                     const item = journals[index];
                     let j = new Journal();
-                    j.journalTime = info?.time;
-                    j.journalType = info?.type || journalType;
+                    j.journalTime = info.time;
+                    j.journalType = info.type || journalType;
                     j.journalId = index + 1;
                     
                     j = await this.journalService.find(j) || j;
@@ -164,9 +164,9 @@ export class AppController {
                 if (info) {
                     let j = new Journal();
                     this.logService.info(info);
-                    j.journalTime = info?.time;
-                    j.journalType = info?.type || journalType;
-                    j.journalId = parseInt(info?.index, 10);
+                    j.journalTime = info.time;
+                    j.journalType = info.type || journalType;
+                    j.journalId = parseInt(info.index, 10);
 
                     j = await this.journalService.find(j) || j;
                     j.isPublish = true;
