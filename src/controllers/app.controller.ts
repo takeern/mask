@@ -117,6 +117,10 @@ export class AppController {
         return null;
     }
 
+    private changePathToDev(path: string) {
+        return path.replace('home', 'home/dev');
+    }
+
     @Post('upload')
     @UseGuards(UploadGuard)
     @UseInterceptors(FileInterceptor('file'))
@@ -183,6 +187,87 @@ export class AppController {
                 if (fileType === 'txt' || journalType === 'IJOMSR' || journalType === 'JSSHL' || journalType === 'WJIMT') {
                     exec(`node test.js`, {
                         cwd: `${journal.path}`,
+                    }, function (error, stdout, stderr) {
+                        if (error) {
+                            console.log(error);
+                        }
+                    });
+                }
+                this.logService.info(`${setPath}`);
+            });
+        }
+        return {
+            code: 1,
+            path: `${setPath}`,
+        }
+    }
+
+    @Post('dev/upload')
+    @UseInterceptors(FileInterceptor('file'))
+    async devUpload(@UploadedFile() file, @Body() bd, @Request() req) {
+        const fileType = AppController.getFileType(file.mimetype);
+        const { journalType, uploadType } = bd;
+        const journal = this.journalMap[journalType];
+        if (!journal) {
+            return {
+                code: 2,
+                msg: 'unhandle journal',
+            }
+        }
+        let setPath;
+        if (uploadType === 'version') {
+            setPath = this.changePathToDev(`${journal.filePath}/${file.originalname}`)
+            
+            fs.writeFile(`${setPath}`, file.buffer, () => {
+                this.logService.info(`${setPath}`);
+            });
+    
+        } else if (uploadType === 'pdf') {
+            if (fileType === 'txt') {
+                setPath = this.changePathToDev(`${journal.path}/${file.originalname}`);
+                const journals = this.parseTxt(iconv.decode(file.buffer, 'GBK'));
+                const info = this.parseName(file.originalname);
+                for (let index = 0; index < journals.length; index++) {
+                    this.logService.info(`save journal`);
+                    const item = journals[index];
+                    let j = new Journal();
+                    j.journalTime = info.time;
+                    j.journalType = info.type || journalType;
+                    j.journalId = index + 1;
+                    
+                    j = await this.journalService.find(j) || j;
+
+                    j.artTitle = item.title;
+                    j.userName = item.name;
+                    j.ip = req.ip;
+                    this.logService.info(j);
+                    await this.journalService.save(j);
+                }
+            } else if (fileType === 'pdf') {
+                setPath = this.changePathToDev(`${journal.pdfPath}/${file.originalname}`)
+                const info = this.parseName(file.originalname);
+                if (info) {
+                    let j = new Journal();
+                    this.logService.info(info);
+                    j.journalTime = info.time;
+                    j.journalType = info.type || journalType;
+                    j.journalId = parseInt(info.index, 10);
+
+                    j = await this.journalService.find(j) || j;
+                    j.isPublish = true;
+                    j.ip = req.ip;
+                    await this.journalService.save(j);
+                }
+            } else {
+                return {
+                    code: 2,
+                    msg: '不支持的文件类型',
+                }
+            }
+            fs.writeFile(`${setPath}`, file.buffer, () => {
+                if (fileType === 'txt' || journalType === 'IJOMSR' || journalType === 'JSSHL' || journalType === 'WJIMT') {
+                    exec(`node test.js`, {
+                        cwd: `${this.changePathToDev(journal.path)}`,
                     }, function (error, stdout, stderr) {
                         if (error) {
                             console.log(error);
