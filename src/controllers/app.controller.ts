@@ -105,7 +105,7 @@ export class AppController {
 
     private parseName(data: string) {
         const res = data.match(/(\w{4})?-?(\d{4}-\d{1,2}-\d{1,2})_?(\d{1,2})?.[pdf|txt]/i);
-        if (res.length) {
+        if (res && res.length) {
             return {
                 type: res[1],
                 time: res[2],

@@ -28,7 +28,7 @@ export class Journal {
   userName: string;
 
   @Column('varchar', {
-    length: 20,
+    length: 40,
     comment: 'ip',
     default: null,
   })
