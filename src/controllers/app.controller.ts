@@ -103,6 +103,24 @@ export class AppController {
         return arr;
     }
 
+    private getFileEncodeType(buffer: Buffer) {
+        if (buffer[0]==0xff&&buffer[1]==0xfe) {
+            return ('unicode')
+        } else if (buffer[0]==0xfe&&buffer[1]==0xff) {
+        　　return ('unicode')
+        } else if(buffer[0]==0xef&&buffer[1]==0xbb) {
+    　　　  return ('utf-8')
+        } else {
+        　　return ('gbk')
+        }
+    }
+
+    private parseBuffer(buffer: Buffer) {
+        const type = this.getFileEncodeType(buffer);
+        const data = iconv.decode(buffer, type);
+        return data;
+    }
+
     private parseName(data: string) {
         const res = data.match(/(\w{4})?-?(\d{4}-\d{1,2}-\d{1,2})_?(\d{1,2})?.[pdf|txt]/i);
         if (res && res.length) {
@@ -135,6 +153,7 @@ export class AppController {
             }
         }
         let setPath;
+        let journals;
         if (uploadType === 'version') {
             setPath = `${journal.filePath}/${file.originalname}`
             fs.writeFile(`${setPath}`, file.buffer, () => {
@@ -144,7 +163,7 @@ export class AppController {
         } else if (uploadType === 'pdf') {
             if (fileType === 'txt') {
                 setPath = `${journal.path}/${file.originalname}`;
-                const journals = this.parseTxt(iconv.decode(file.buffer, 'GBK'));
+                journals = this.parseTxt(this.parseBuffer(file.buffer));
                 const info = this.parseName(file.originalname);
                 for (let index = 0; index < journals.length; index++) {
                     this.logService.info(`save journal`);
@@ -199,6 +218,7 @@ export class AppController {
         return {
             code: 1,
             path: `${setPath}`,
+            journals
         }
     }
 
@@ -215,6 +235,7 @@ export class AppController {
             }
         }
         let setPath;
+        let journals;
         if (uploadType === 'version') {
             setPath = this.changePathToDev(`${journal.filePath}/${file.originalname}`)
             
@@ -225,7 +246,7 @@ export class AppController {
         } else if (uploadType === 'pdf') {
             if (fileType === 'txt') {
                 setPath = this.changePathToDev(`${journal.path}/${file.originalname}`);
-                const journals = this.parseTxt(iconv.decode(file.buffer, 'GBK'));
+                journals = this.parseTxt(this.parseBuffer(file.buffer));
                 const info = this.parseName(file.originalname);
                 for (let index = 0; index < journals.length; index++) {
                     this.logService.info(`save journal`);
@@ -244,7 +265,7 @@ export class AppController {
                     await this.journalService.save(j);
                 }
             } else if (fileType === 'pdf') {
-                setPath = this.changePathToDev(`${journal.pdfPath}/${file.originalname}`)
+                setPath = this.changePathToDev(`${journal.pdfPath}/${file.originalname}`);
                 const info = this.parseName(file.originalname);
                 if (info) {
                     let j = new Journal();
@@ -280,6 +301,7 @@ export class AppController {
         return {
             code: 1,
             path: `${setPath}`,
+            journals
         }
     }
 }
