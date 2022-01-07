@@ -66,6 +66,11 @@ export class AppController {
             pdfPath: '/home/jostr/src/assets/pdf',
             filePath: '/home/jostr/dist',
         },
+        JTPCE: {
+            path: '/home/jptce/parsePage',
+            pdfPath: '/home/jptce/src/assets/pdf',
+            filePath: '/home/jptce/dist',
+        }
     }
     constructor(
         private readonly logService: LogService,
