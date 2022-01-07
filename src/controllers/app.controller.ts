@@ -67,9 +67,9 @@ export class AppController {
             filePath: '/home/jostr/dist',
         },
         JTPCE: {
-            path: '/home/jptce/parsePage',
-            pdfPath: '/home/jptce/src/assets/pdf',
-            filePath: '/home/jptce/dist',
+            path: '/home/jtpce/parsePage',
+            pdfPath: '/home/jtpce/src/assets/pdf',
+            filePath: '/home/jtpce/dist',
         }
     }
     constructor(
