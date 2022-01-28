@@ -70,7 +70,22 @@ export class AppController {
             path: '/home/jtpce/parsePage',
             pdfPath: '/home/jtpce/src/assets/pdf',
             filePath: '/home/jtpce/dist',
-        }
+        },
+        JTPSS: {
+            path: '/home/jtpss/parsePage',
+            pdfPath: '/home/jtpss/src/assets/pdf',
+            filePath: '/home/jtpss/dist',
+        },
+        JTPMS: {
+            path: '/home/jtpms/parsePage',
+            pdfPath: '/home/jtpms/src/assets/pdf',
+            filePath: '/home/jtpms/dist',
+        },
+        JTPES: {
+            path: '/home/jtpes/parsePage',
+            pdfPath: '/home/jtpes/src/assets/pdf',
+            filePath: '/home/jtpes/dist',
+        },
     }
     constructor(
         private readonly logService: LogService,
