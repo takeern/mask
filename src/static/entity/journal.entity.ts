@@ -21,7 +21,7 @@ export class Journal {
   artTitle: string;
 
   @Column('varchar', {
-    length: 200,
+    length: 500,
     comment: '作者名字',
     default: null,
   })

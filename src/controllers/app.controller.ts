@@ -131,7 +131,8 @@ export class AppController {
         } else if(buffer[0]==0xef&&buffer[1]==0xbb) {
     　　　  return ('utf-8')
         } else {
-        　　return ('gbk')
+       // 　　return ('gbk')
+	return ('utf-8');
         }
     }
 
